@@ -7,8 +7,10 @@ namespace ShoLaKi.Chat.Domain.Entities
         [Key]
         public int MessageID { get; set; }
         public string Content { get; set; }
+        public DateTime TimeSent { get; set; } = DateTime.UtcNow;
         public bool isEdited {  get; set; }
         public DateTime? EditedTime { get; set; }
-        public 
+        public int SenderId {  get; set; }
+
     }
 }

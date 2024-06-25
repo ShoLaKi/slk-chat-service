@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ShoLaKi.Chat.Domain.Entities.ChatRoom.ChatType;
+using ShoLaKi.Chat.Domain.Entities.ChatRoom.ChatType.GroupChat;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShoLaKi.Chat.Domain.Entities
 {
@@ -10,7 +12,8 @@ namespace ShoLaKi.Chat.Domain.Entities
         public string? ProfilePictureUrl { get; set; }
         public UserStatus Status { get; set; }
         public UserType Type { get; set; }
-
+        public ICollection<PersonalChat>? PersonalChats { get; set; }
+        public ICollection<GroupChat>? GroupChats { get; set; }  
         public void SetOnline()
         {
             Status = UserStatus.Online;
