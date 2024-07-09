@@ -19,15 +19,24 @@ namespace ShoLaKi.Chat.Infrastructure.Data.Configurations
             builder.Property(u => u.ProfilePictureUrl);
 
             builder.Property(u => u.Status)
-                .HasDefaultValue(UserStatus.Offline); 
+                .HasDefaultValue(UserStatus.Offline);
+            builder.Property(u => u.Type)
+                .HasDefaultValue(UserType.Client);
 
-            builder.HasOne(u => u.PersonalChats) 
-                .InverseProperty(pc => pc.User)
-                .HasForeignKey(u => u.UserId); 
+            builder.HasMany(pc => pc.PersonalChats)
+                .WithMany(u => u.ChatUsers);
 
-            builder.HasOne(u => u.GroupChats) 
-                .InverseProperty(gc => gc.User)
-                .HasForeignKey(u => u.UserId); 
+            builder.HasMany(u => u.GroupMembers) 
+                .WithOne(gc => gc.User)
+                .HasForeignKey(u => u.UserId);
+            builder.HasMany(au => au.AutoResponds)
+                .WithOne(us => us.User)
+                .HasForeignKey(fk=>fk.BelongToUserId);
+            builder.HasMany(ms => ms.Messages)
+                .WithOne(u => u.User)
+                .HasForeignKey(fk => fk.SenderId);
+            builder.HasOne(uca => uca.UserChatAppearance)
+                .WithOne(u => u.User);
 
  
         }

@@ -13,11 +13,11 @@ namespace ShoLaKi.Chat.Infrastructure.Data.Configurations
             builder.HasKey(gm => new { gm.GroupId, gm.UserId });
 
             builder.HasOne(gm => gm.GroupChat)
-                .WithMany(gc => gc.Members)
+                .WithMany(gc => gc.GroupMembers)
                 .HasForeignKey(gm => gm.GroupId);
 
             builder.HasOne(gm => gm.User)
-                .WithMany(u => u.GroupMemberships)
+                .WithMany(us => us.GroupMembers)
                 .HasForeignKey(gm => gm.UserId);
 
         }

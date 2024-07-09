@@ -8,5 +8,6 @@ namespace ShoLaKi.Chat.Domain.Entities.ChatRoom.ChatType.GroupChat
 {
     internal class Role
     {
+        //in Develop phase
     }
 }

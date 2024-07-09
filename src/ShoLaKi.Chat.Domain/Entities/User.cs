@@ -13,7 +13,10 @@ namespace ShoLaKi.Chat.Domain.Entities
         public UserStatus Status { get; set; }
         public UserType Type { get; set; }
         public ICollection<PersonalChat>? PersonalChats { get; set; }
-        public ICollection<GroupChat>? GroupChats { get; set; }  
+        public ICollection<GroupMember>? GroupMembers { get; set; } 
+        public ICollection<AutoResponds>? AutoResponds { get; set; }
+        public ICollection<Message> Messages { get; set; }
+        public UserChatAppearance UserChatAppearance { get; set; }
         public void SetOnline()
         {
             Status = UserStatus.Online;

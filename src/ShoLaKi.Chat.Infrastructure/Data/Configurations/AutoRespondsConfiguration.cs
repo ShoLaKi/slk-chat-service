@@ -14,7 +14,7 @@ namespace ShoLaKi.Chat.Infrastructure.Data.Configurations
             builder.Property(a => a.RespondsText)
                 .IsRequired();
 
-            builder.Property(a => a.TimestampSent);
+            builder.Property(a => a.TimeSent);
 
             builder.Property(a => a.TriggerCondition)
                 .IsRequired();

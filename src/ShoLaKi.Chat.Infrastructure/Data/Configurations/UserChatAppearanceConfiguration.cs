@@ -10,16 +10,8 @@ namespace ShoLaKi.Chat.Infrastructure.Data.Configurations
         {
             builder.ToTable("UserChatAppearances"); 
             builder.HasKey(uca => uca.UserCchatAppearanceID);
-
-            builder.Property(uca => uca.UserID)
-                .IsRequired(); 
-
-            builder.HasOne(uca => uca.User) 
-                .WithMany(u => u.ChatAppearances) 
-                .HasForeignKey(uca => uca.UserID);
-
-            builder.Property(uca => uca.Nickname);
-            builder.Property(uca => uca.ColorTheme);
+            builder.HasOne(uca => uca.User)
+                .WithOne(u => u.UserChatAppearance);
         }
     }
 }

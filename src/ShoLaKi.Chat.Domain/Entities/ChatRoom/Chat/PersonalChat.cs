@@ -1,7 +1,10 @@
-﻿namespace ShoLaKi.Chat.Domain.Entities.ChatRoom.ChatType
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ShoLaKi.Chat.Domain.Entities.ChatRoom.ChatType
 {
     public class PersonalChat
     {
+        [Key]
         public int ChatId { get; set; }
         public string? Password { get; set; }
 
@@ -14,9 +17,8 @@
         public DateTime? UpdatedTime { get; set; }
 
         */
-
-        public Message FrontMess { get; set; }
-        public int SenderId { get; set; }
+        public ICollection <Message> Messages { get; set; }
+        //public Message FrontMess { get; set; }
         public ICollection<User> ChatUsers { get; set; }
     }
 }

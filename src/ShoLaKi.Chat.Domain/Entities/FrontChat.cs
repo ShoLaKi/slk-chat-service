@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoLaKi.Chat.Infrastructure.Lib.Extensions
+namespace ShoLaKi.Chat.Domain.Entities
 {
-    internal class ServiceCollectionExtension
+    internal class FrontChat
     {
     }
 }
